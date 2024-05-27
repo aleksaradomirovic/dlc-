@@ -20,7 +20,7 @@ void * library::get_label(const char * label) {
     void * sym = dlsym(handle, label);
     if(sym == NULL) {
         const char * err = dlerror();
-        if(dlerror == NULL) throw std::runtime_error(dlerror());
+        if(err != NULL) throw std::runtime_error(err);
     }
     return sym;
 }
